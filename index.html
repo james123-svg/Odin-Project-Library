@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <form style="display: flex; flex-direction: column; max-width: 250px;" action="/index.html" method="get">
+        <form style="display: flex; flex-direction: column; max-width: 250px;">
             <h2>Add a book</h2>
             <label>Title</label>
             <input id="bookTitle" type="text" placeholder="Title" required>
@@ -21,11 +21,12 @@
             <br>
             <fieldset id="bookIsread">
                 <legend>Have you read it?</legend>
-                    <label>Yes<input type="radio" name="read"></label>
-                    <label>No<input type="radio" name="read"></label>
+                    <label>Yes<input value="true" type="radio" name="read"></label>
+                    <label>No<input value="false" type="radio" name="read"></label>
             </fieldset>
-            <button id="addBook" type="submit"> Add book </button>
+            <button id="addBook" type="button"> Add book </button>
         </form>
+        <table id="bookShelf"></table>
     </div>
 
     
