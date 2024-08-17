@@ -1,0 +1,76 @@
+body {
+    font-family: Helvetica, sans-serif
+}
+
+h2 {
+ 
+    letter-spacing: -.3px;
+    line-height: 120%;
+    margin: 8px 0 20px;
+
+}
+
+
+form {
+
+    padding:20px;
+    border: 1px, solid, rgb(232, 232, 232);
+    border-radius: 12px;
+    min-width: 280px;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1), /* Soft shadow */
+                0 1px 3px rgba(0, 0, 0, 0.08); /* Inner shadow */
+}
+
+fieldset {
+
+    border: none;
+    padding: 0px; !important
+    margin:  0px; !important
+}
+
+label, legend {
+
+    margin: 0 0 8px 0;
+    font-size: small;
+    color: rgb(54, 54, 54);
+}
+
+input {
+
+    border: 1px, solid, rgb(215, 215, 215);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+input:hover{
+    border: 1px, solid, rgb(194, 194, 194);
+    background-color: rgb(249, 249, 249);
+}
+
+button {
+
+    margin: 16px 0 0 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 0;
+    color: white;
+    background-color: rgb(66, 66, 253);
+    transition: background-color 100ms ease-in-out;
+    
+}
+
+button:hover{
+
+    background-color: rgb(87, 87, 255);
+    trab
+}
+
+
+.container {
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
