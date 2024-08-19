@@ -34,37 +34,85 @@ Book.prototype.info = function() {
 }
 
 // Function to display books
+
+// function displayBooks() {
+
+//     let bookShelf = document.getElementById('bookShelf');
+//     bookShelf.innerHTML = ''
+//     books.forEach(Book => {
+//         let row = document.createElement('tr');
+
+//         // Create cells for each property
+//         let titleCell = document.createElement('td');
+//         titleCell.textContent = Book.title;
+
+//         let authorCell = document.createElement('td');
+//         authorCell.textContent = Book.author;
+
+//         let pagesCell = document.createElement('td');
+//         pagesCell.textContent = Book.pages;
+
+//         let readCell = document.createElement('td');
+//         readCell.textContent = Book.read ? 'Yes' : 'No';
+
+//         // Append cells to the row
+//         row.appendChild(titleCell);
+//         row.appendChild(authorCell);
+//         row.appendChild(pagesCell);
+//         row.appendChild(readCell);
+
+//         // Append the row to the table body
+//         bookShelf.appendChild(row);
+//     });
+
+// }
+
 function displayBooks() {
 
-    let bookShelf = document.getElementById('bookShelf');
-    bookShelf.innerHTML = ''
-    books.forEach(Book => {
-        let row = document.createElement('tr');
+        let yourBooks = document.getElementById('yourBooks');
+        yourBooks.innerHTML = '';
 
-        // Create cells for each property
-        let titleCell = document.createElement('td');
-        titleCell.textContent = Book.title;
+        books.forEach(Book => {
+    
+            // Create card & content for book
 
-        let authorCell = document.createElement('td');
-        authorCell.textContent = Book.author;
+            let bookCard = document.createElement('div');
+            bookCard.classList.add('card');
 
-        let pagesCell = document.createElement('td');
-        pagesCell.textContent = Book.pages;
 
-        let readCell = document.createElement('td');
-        readCell.textContent = Book.read ? 'Yes' : 'No';
+            let titleCell = document.createElement('p');
+            titleCell.textContent = Book.title;
+    
+            let authorCell = document.createElement('p');
+            authorCell.textContent = Book.author;
+    
+            let pagesCell = document.createElement('p');
+            pagesCell.textContent = Book.pages;
+    
+            let readCell = document.createElement('p');
+            readCell.textContent = Book.read ? 'Yes' : 'No';
 
-        // Append cells to the row
-        row.appendChild(titleCell);
-        row.appendChild(authorCell);
-        row.appendChild(pagesCell);
-        row.appendChild(readCell);
+            let deleteBtn = document.createElement('button');
+            deleteBtn.innerHTML = "Delete";
+            deleteBtn.classList.add('delete');
 
-        // Append the row to the table body
-        bookShelf.appendChild(row);
-    });
+            // Append card content to card
 
-}
+            bookCard.appendChild(titleCell);
+            bookCard.appendChild(authorCell);
+            bookCard.appendChild(pagesCell);
+            bookCard.appendChild(readCell);
+            bookCard.appendChild(deleteBtn);
+
+            // Append card to yourBooks
+
+            yourBooks.appendChild(bookCard);
+
+
+        });
+    
+    }
+
 
 // Add event listener to the 'Add Book' button
 let addBook = document.getElementById('addBook');

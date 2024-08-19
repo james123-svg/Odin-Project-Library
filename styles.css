@@ -12,13 +12,17 @@ h2 {
 
 
 form {
+    min-width: 280px;
+}
+
+.card {
 
     padding:20px;
     border: 1px, solid, rgb(232, 232, 232);
     border-radius: 12px;
-    min-width: 280px;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1), /* Soft shadow */
                 0 1px 3px rgba(0, 0, 0, 0.08); /* Inner shadow */
+
 }
 
 fieldset {
