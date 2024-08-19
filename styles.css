@@ -1,5 +1,10 @@
 body {
-    font-family: Helvetica, sans-serif
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
 h2 {
@@ -119,9 +124,11 @@ button:hover{
 .container {
 
     height: 100vh;
+    width: 100%;
+    max-width: 900px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     flex-direction: column;
     gap: 36px;
 
@@ -129,7 +136,7 @@ button:hover{
 
 #yourBooks{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     gap: 16px;
 }
