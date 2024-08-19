@@ -9,6 +9,22 @@ h2 {
     margin: 8px 0 20px;
 
 }
+h4 {
+
+    line-height: 120%;
+    margin: 12px 0 4px;
+    white-space: nowrap;           /* Prevents the text from wrapping to the next line */
+    overflow: hidden;              /* Ensures that content outside the container is hidden */
+    text-overflow: ellipsis;       /* Adds an ellipsis (...) at the end of the truncated text */
+    width: 200px;
+
+}
+h5{
+    margin: 0;
+    font-weight: 500;
+    color: rgb(127, 127, 127)
+}
+
 
 
 form {
@@ -17,12 +33,31 @@ form {
 
 .card {
 
-    padding:20px;
+    padding:16px;
     border: 1px, solid, rgb(232, 232, 232);
     border-radius: 12px;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1), /* Soft shadow */
                 0 1px 3px rgba(0, 0, 0, 0.08); /* Inner shadow */
 
+}
+
+.card-cover{
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size:contain;
+    height: 200px;
+    border-radius: 8px;
+    border: 1px, solid, rgb(236, 236, 236);
+    background-color: rgb(36, 36, 36);
+}
+
+.flex-h{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 fieldset {
@@ -62,14 +97,22 @@ button {
     transition: background-color 100ms ease-in-out;
     
 }
-.deleteBtn{
-    background-color: red;
-}
 
 button:hover{
 
     background-color: rgb(87, 87, 255);
-    trab
+}
+
+.deleteBtn{
+    background-color: rgb(242, 242, 242);
+    padding: 8px;
+    height: auto;
+    display: flex;
+    color: rgb(135, 135, 135);
+}
+.deleteBtn:hover{
+    background-color: rgb(255, 210, 210);
+    color: rgb(165, 0, 0);
 }
 
 

@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="container">
+
+        
         <form class="card" style="display: flex; flex-direction: column; max-width: 250px;">
             <h2>Add a book</h2>
             <label>Title</label>
@@ -17,9 +19,9 @@
             <input id="bookAuthor" type="text" placeholder="Author name" required>
             <br>
             <label>Number of pages</label>
-            <input id="bookPages" type="number" placeholder="Number">
+            <input id="bookPages" type="number" placeholder="Number" required>
             <br>
-            <fieldset id="bookIsread">
+            <fieldset id="bookIsread" required>
                 <legend>Have you read it?</legend>
                     <label>Yes<input value="true" type="radio" name="read"></label>
                     <label>No<input value="false" type="radio" name="read"></label>
@@ -27,7 +29,69 @@
             <button id="addBook" type="button"> Add book </button>
         </form>
         <h2> Your books</h2>
-        <div id="yourBooks"></div>
+        <div id="yourBooks">
+            <div height="250px" class="card">
+                <div class="card-cover" style='background-image: url("https://cdn.kobo.com/book-images/59e80730-aaad-4b30-ac1d-fd5952880c01/1200/1200/False/the-power-of-now-1.jpg")'></div>
+                <div class="flex-h">
+                    <div>
+                        <h4>Very very very very long book title</h2>
+                        <h5>Author</h5>  
+                    </div>
+                    <br>
+                    <button class="deleteBtn"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z"/></svg></button>
+
+                </div>
+                
+                
+            </div>
+            <div height="250px" class="card">
+                <div class="card-cover" style='background-image: url("https://cdn.kobo.com/book-images/59e80730-aaad-4b30-ac1d-fd5952880c01/1200/1200/False/the-power-of-now-1.jpg")'></div>
+                <div class="flex-h">
+                    <div>
+                        <h4>Very very very very long book title</h2>
+                        <h5>Author</h5>  
+                    </div>
+                    <br>
+                    <button class="deleteBtn"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z"/></svg></button>
+
+                </div>
+                
+                
+            </div>
+            <div height="250px" class="card">
+                <div class="card-cover" style='background-image: url("https://cdn.kobo.com/book-images/59e80730-aaad-4b30-ac1d-fd5952880c01/1200/1200/False/the-power-of-now-1.jpg")'></div>
+                <div class="flex-h">
+                    <div>
+                        <h4>Very very very very long book title</h2>
+                        <h5>Author</h5>  
+                    </div>
+                    <br>
+                    <button class="deleteBtn"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z"/></svg></button>
+
+                </div>
+                
+                
+            </div>
+            <div height="250px" class="card">
+                <div class="card-cover" style='background-image: url("https://cdn.kobo.com/book-images/59e80730-aaad-4b30-ac1d-fd5952880c01/1200/1200/False/the-power-of-now-1.jpg")'></div>
+                <div class="flex-h">
+                    <div>
+                        <h4>Very very very very long book title</h2>
+                        <h5>Author</h5>  
+                    </div>
+                    <br>
+                    <button class="deleteBtn"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z"/></svg></button>
+
+                </div>
+                
+                
+            </div>
+        
+           
+            
+        </div>
+
+       
     </div>
 
     
