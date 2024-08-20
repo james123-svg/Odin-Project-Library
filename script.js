@@ -3,7 +3,9 @@
 let books = [];
 let bookId = 0;
 
+
 // Book constructor
+
 function Book(title, author, pages, read, imgUrl){
     this.title = title;
     this.author = author;
@@ -13,38 +15,71 @@ function Book(title, author, pages, read, imgUrl){
     this.imgUrl = imgUrl;
 }
 
+Book.prototype.info = function() {
+    let isread = this.read ? "read" : "not read yet";
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${isread}`;
+}
+
+
+// Open & close modal to add book
+const addForm = document.querySelector('.addForm');
+const openModal = document.getElementById('openModal');
+const modalWindow = document.getElementById('modal');
+const closeBtn = document.querySelector('.closeBtn');
+
+// Open the modal
+openModal.addEventListener('click', function() {
+    modalWindow.classList.add('modal');
+    modalWindow.setAttribute('open', 'true');
+});
+
+// Close the modal when close button is clicked
+closeBtn.addEventListener('click', modalClose);
+
+// Close the modal when clicking outside the form content
+modalWindow.addEventListener('click', function(event) {
+    // Check if the click is outside the form element
+    if (!event.target.closest('form')) {
+        modalClose();
+    }
+});
+
+// Function to close the modal
+function modalClose() {
+    modalWindow.classList.remove('modal');
+    modalWindow.removeAttribute('open');
+    console.log('Modal closed');
+}
+
+
 // Add book to library array
+
 function bookAdder() {
     let title = document.getElementById('bookTitle')
     let author = document.getElementById('bookAuthor')
     let pages = document.getElementById('bookPages')
-    let read = document.querySelector('input[name="read"]:checked').value === "true";
+    let read = document.getElementById('bookIsRead')
     let imgUrl = document.getElementById('bookImg')
 
     let newBook = new Book(title.value, author.value, pages.value, read.value, imgUrl.value);
     books.push(newBook);
     console.log(books);
 
-    title.value = '';
-    author.value = '';
-    pages.value = '';
-    imgUrl.value = '';
+    addForm.reset();
     displayBooks();
-    
+    modalClose();
 }
 
-Book.prototype.info = function() {
-    let isread = this.read ? "read" : "not read yet";
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${isread}`;
-}
 
 // Function to delete a book
+
 function deleteBook(ind){
     // Remove the book with the corresponding bookId
     books.splice(ind, 1);
     displayBooks();
     console.log('delete', ind);
 }
+
 
 // Function to display books
 function displayBooks() {
@@ -57,44 +92,11 @@ function displayBooks() {
     bookId = 0;
 
     books.forEach(Book => {
-        // Create card & content for book
-        // let bookCard = document.createElement('div');
-        // bookCard.classList.add('card');
-        // bookCard.id = bookId;
-
-        // let titleCell = document.createElement('p');
-        // titleCell.textContent = Book.title;
-
-        // let authorCell = document.createElement('p');
-        // authorCell.textContent = Book.author;
-
-        // let pagesCell = document.createElement('p');
-        // pagesCell.textContent = Book.pages;
-
-        // let readCell = document.createElement('p');
-        // readCell.textContent = Book.read ? 'Yes' : 'No';
-
-        // let deleteBtn = document.createElement('button');
-        // deleteBtn.innerHTML = "Delete";
-
-        // // Attach the event listener correctly
-        // deleteBtn.addEventListener('click', function() {
-        //     deleteBook(bookCard.id);
-        // });
-
-        // deleteBtn.classList.add('deleteBtn');
-
-        // // Append card content to card
-        // bookCard.appendChild(titleCell);
-        // bookCard.appendChild(authorCell);
-        // bookCard.appendChild(pagesCell);
-        // bookCard.appendChild(readCell);
-        // bookCard.appendChild(deleteBtn);
-
 
         // Create the main card div
         let card = document.createElement('div');
         card.classList.add('card'); // Add the card class
+        card.classList.add('book'); 
         card.id = bookId;
     
         // Create the card-cover div and set the background image
@@ -104,7 +106,7 @@ function displayBooks() {
     
         // Create the flex-h div
         let flexH = document.createElement('div');
-        flexH.classList.add('flex-h');
+        flexH.classList.add('flex-v');
     
         // Create the text container div
         let textContainer = document.createElement('div');
@@ -119,7 +121,7 @@ function displayBooks() {
         authorElement.textContent = Book.author;
         textContainer.appendChild(authorElement);
     
-        // Append the text container to the flex-h div
+        // Append the text container to the flex-v div
         flexH.appendChild(textContainer);
     
         // Add a line break
@@ -170,8 +172,28 @@ function displayBooks() {
 
 
 // Add event listener to the 'Add Book' button
-let addBook = document.getElementById('addBook');
-addBook.addEventListener('click', bookAdder);
+
+document.getElementById('addBook').addEventListener('click', function(event) {
+
+    // Check if the form is valid
+    if (addForm.checkValidity()) {
+        // If valid, call the function
+        bookAdder();
+    } else {
+        // Prevent form submission and show validation errors
+        event.preventDefault();
+        addForm.reportValidity(); // Optionally show validation errors
+    }
+});
+
+// Add some default books
 
 
+let defaultBook = new Book('The Power of Now', 'Eckhart Tole', 389, true, 'https://cdn.kobo.com/book-images/59e80730-aaad-4b30-ac1d-fd5952880c01/1200/1200/False/the-power-of-now-1.jpg');
+books.push(defaultBook);
+defaultBook = new Book('The Power of Now', 'Eckhart Tole', 389, true, 'https://exclusivebooks.co.za/cdn/shop/products/9780340733509_ba42147a-d34e-4192-90ab-7e8d68c947ab.jpg?v=1707243823');
+books.push(defaultBook);
+defaultBook = new Book('The Power of Now', 'Eckhart Tole', 389, true, 'https://exclusivebooks.co.za/cdn/shop/products/9780340733509_ba42147a-d34e-4192-90ab-7e8d68c947ab.jpg?v=1707243823');
+books.push(defaultBook);
 
+displayBooks();
