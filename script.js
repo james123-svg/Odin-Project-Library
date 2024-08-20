@@ -61,7 +61,7 @@ function bookAdder() {
     let read = document.getElementById('bookIsRead')
     let imgUrl = document.getElementById('bookImg')
 
-    let newBook = new Book(title.value, author.value, pages.value, read.value, imgUrl.value);
+    let newBook = new Book(title.value, author.value, pages.value, read.checked, imgUrl.value);
     books.push(newBook);
     console.log(books);
 
@@ -78,6 +78,23 @@ function deleteBook(ind){
     books.splice(ind, 1);
     displayBooks();
     console.log('delete', ind);
+}
+
+// Function to toggle 'read' status
+
+function toggleRead(event){
+    let clickedElement = event.target;
+    let bookInd = Number(clickedElement.id)
+    if (books[bookInd].read == false){
+        books[bookInd].read = true;
+        clickedElement.innerHTML = 'Read'
+    }
+    else{
+        books[bookInd].read = false;
+        clickedElement.innerHTML = 'Not read'
+    }
+    clickedElement.classList.toggle('bookRead');
+    console.log(books)
 }
 
 
@@ -134,6 +151,22 @@ function displayBooks() {
         deleteBtn.addEventListener('click', function() {
                 deleteBook(card.id);
             });
+
+        // Create the read tag
+        let isRead = document.createElement('div');
+        isRead.classList.add('tag')
+        isRead.id = bookId;
+        isRead.addEventListener('click', function(event) {
+            toggleRead(event);
+        });
+        if (Book.read == true){
+            isRead.classList.add('bookRead');
+            isRead.innerHTML = "Read"
+        }
+        else{
+            isRead.innerHTML = "Not read"
+        }
+        
     
         // Create the SVG icon
         let svgIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -155,6 +188,9 @@ function displayBooks() {
     
         // Append the delete button to the flex-h div
         flexH.appendChild(deleteBtn);
+
+        // Append the checkbox button to the cover
+        cardCover.appendChild(isRead);
     
         // Append the card-cover and flex-h divs to the main card
         card.appendChild(cardCover);
@@ -189,11 +225,12 @@ document.getElementById('addBook').addEventListener('click', function(event) {
 // Add some default books
 
 
-let defaultBook = new Book('The Power of Now', 'Eckhart Tole', 389, true, 'https://cdn.kobo.com/book-images/59e80730-aaad-4b30-ac1d-fd5952880c01/1200/1200/False/the-power-of-now-1.jpg');
+let defaultBook = new Book('The Power of Now', 'Eckhart Tole', 389, true, 'https://exclusivebooks.co.za/cdn/shop/products/9780340733509_ba42147a-d34e-4192-90ab-7e8d68c947ab.jpg?v=1707243823');
 books.push(defaultBook);
-defaultBook = new Book('The Power of Now', 'Eckhart Tole', 389, true, 'https://exclusivebooks.co.za/cdn/shop/products/9780340733509_ba42147a-d34e-4192-90ab-7e8d68c947ab.jpg?v=1707243823');
+defaultBook = new Book('The Alchemist', 'Paulo Coelho', 302, true, 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg');
 books.push(defaultBook);
-defaultBook = new Book('The Power of Now', 'Eckhart Tole', 389, true, 'https://exclusivebooks.co.za/cdn/shop/products/9780340733509_ba42147a-d34e-4192-90ab-7e8d68c947ab.jpg?v=1707243823');
+defaultBook = new Book('One Hundred Years of Solitude', 'Gabriel Garcia Marquez', 302, true, 'https://cdn.kobo.com/book-images/1a05c13c-b05f-4184-9d32-176ab75b5e7c/1200/1200/False/one-hundred-years-of-solitude-3.jpg');
 books.push(defaultBook);
 
 displayBooks();
+

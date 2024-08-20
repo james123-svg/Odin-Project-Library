@@ -42,6 +42,7 @@ h5{
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10000;
 }
 .logo-text{
     margin: 0;
@@ -90,12 +91,34 @@ form {
     height: 153px;
     width: 100px;
     border-radius: 5px;
+    position: relative;
 
     background-color: rgb(235, 235, 235);
     flex-shrink: 0;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1), 
                 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+.tag{
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    padding: 4px 8px;
+    border-radius: 5px !important;
+    background-color: white;
+    font-size: x-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: .3px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+}
+.bookRead{
+    background-color: rgb(53, 78, 53) !important;
+    color: white;
+}
+
 .book{
     display: flex;
     flex-direction: row !important;
@@ -192,14 +215,14 @@ button:hover{
 .container {
 
     height: 100vh;
-    width: 100%;
+    width: 90%;
     max-width: 900px;
     display: flex;
     align-items: center;
     justify-content: left;
     flex-direction: column;
     gap: 36px;
-    padding: 0;
+    
 
 }
 
